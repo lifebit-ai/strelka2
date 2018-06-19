@@ -200,7 +200,24 @@ process "2_run_variant_caller" {
     file('calling_output.vcf') into methods_result
 
     script:
-    template "${params.method}"
+    """
+    	pwd=\$PWD
+
+	/strelka-2.9.4.centos6_x86_64/bin/configureStrelkaGermlineWorkflow.py \
+	 --bam NA12878_S1.chr20.10_10p1mb.bam \
+	 --ref ucsc.hg19.chr20.unittest.fasta  \
+	 --runDir ~/demo_germline
+
+	cd ~/demo_germline
+
+	./runWorkflow.py -j 2 -m local 
+
+	cd ./results/variants/
+
+	gunzip ./variants.vcf.gz
+
+	mv variants.vcf \$pwd/calling_output.vcf
+    """
 }
 
 
