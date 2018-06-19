@@ -58,4 +58,3 @@ Results/calling_output.vcf
   * [GitHub](https://github.com/Illumina/strelka)
   * [Publication](https://www.biorxiv.org/content/early/2017/09/25/192872)
   * DockerContainer: [lifebitai/strelka2](https://hub.docker.com/r/lifebitai/strelka2/)
-  * [Template-command](https://github.com/lifebit-ai/variantCalling/blob/master/templates/strelka2)
