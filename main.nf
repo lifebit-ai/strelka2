@@ -141,7 +141,7 @@ process preprocess_genome{
 process preprocess_bam{
 
   tag "${bam[0]}"
-  container 'lifebitai/preprocessingVCtools'
+  container 'lifebitai/preprocessingvctools'
 
 
   input:
