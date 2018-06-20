@@ -81,7 +81,7 @@ params.rgsm=20;
   Bam input files
   The input must be a path to a folder containing multiple bam files
 ---------------------------------------------------*/
-params.bam_folder="testdata";
+params.bam_folder="s3://deepvariant-test/input/";
 Channel.fromPath("${params.bam_folder}/*.bam").map{ file -> tuple(file.name, file) }.set{bamChannel}
 
 /*--------------------------------------------------
