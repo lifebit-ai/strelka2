@@ -84,10 +84,7 @@ params.rgsm=20;
 params.bam_folder="s3://deepvariant-test/input/";
 Channel.fromPath("${params.bam_folder}/*.bam").map{ file -> tuple(file.name, file) }.set{bamChannel}
 
-/*--------------------------------------------------
-  Variant Caller to be used
----------------------------------------------------*/
-params.method="gatk-hc"
+
 
 /*--------------------------------------------------
   Output directory
@@ -210,7 +207,7 @@ process run_variant_caller {
 
 	cd ~/demo_germline
 
-	./runWorkflow.py -j 2 -m local 
+	./runWorkflow.py -j ${params.j} -m local 
 
 	cd ./results/variants/
 
