@@ -112,7 +112,7 @@ params.resultdir = "Results";
 
 process preprocess_genome{
 
-  container 'lifebitai/preprocessingvctools'
+  container 'lifebitai/samtools'
 
 
   input:
@@ -138,7 +138,7 @@ process preprocess_genome{
 process preprocess_bam{
 
   tag "${bam[0]}"
-  container 'lifebitai/preprocessingvctools'
+  container 'lifebitai/samtools'
 
 
   input:
